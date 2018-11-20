@@ -6,7 +6,54 @@ permalink: /positions
 <body>
   <div id="root" class="main-app-container">
     {% include navbar.html %}
-    Positions
+    <div class="selected-positions">
+    <h1 class="page-top">Positions</h2>
+    {% for position in site.data.positions %}
+    <div class="position-container">
+        <div class="image-container" >
+            <div class="screenshot-container">
+            <img src="{{position.image}}"/>
+            </div>
+        </div>
+        <div class="position-info-container">
+            <div class="position-info-main">
+            <div>
+                <h2>
+                {{ position.title }}
+                </h2>
+                <h2 style="marginLeft:auto"><i class="fa fa-plus" aria-hidden="true"></i></h2>
+            </div>
+            {% if position.company %}
+                <div> 
+                {% if position.company_url %} 
+                    <a href="{{ position.company_url }}" target="_blank"> {{ position.company }} </a> 
+                {% else%}
+                    {{ position.company }}
+                {% endif %}
+                </div> 
+            {% endif %}
+            <div>{{ position.date }}</div>
+            </div>
+            <div class='position-info-body' id="{{ positionId }}">
+            <h3>Background</h3>
+            <div>{{ position.background }}</div>
+            <h3>Role</h3>
+            <div>{{ position.role }}</div>
+            {% if position.links.length != 0 %} 
+                <div>
+                    <h3>Links</h3>
+                    <ul>
+                    {% for link in position.links %}
+                        <li><a href="{{ link }}">{{ link }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
   </div>
   <script src="/js/intro_size_selector.js"></script>
   <script src="/js/set_on_clicks.js"></script>
