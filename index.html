@@ -37,8 +37,8 @@ permalink: /
       data-z={{ route.color.z }}
       data-icon-url={{ route.icon_url}}
       data-url="{{ route.url }}"
-      style="background: linear-gradient(-45deg, rgb({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}), rgba({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}, 0.55)) 0% 0% / contain, url(/assets/{{ route.icon_url }}) center center no-repeat;" >
-      <h1 style="font-size:50px;word-wrap:break-word;" data-reactid=".0.1.2.$1.0">{{ route.name }}</h1>
+      style="background: linear-gradient(-45deg, rgb({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}), rgba({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}, 0.55)) 0% 0%, url(/assets/{{ route.icon_url }}) center center no-repeat; background-size: contain;" >
+      <h1 style="font-size:50px;word-wrap:break-word;">{{ route.name }}</h1>
     </div>
     {% endfor %}
     </div>
