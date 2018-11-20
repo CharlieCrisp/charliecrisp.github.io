@@ -5,7 +5,7 @@ permalink: /
 <html>
 {% include head.html %}
 <body>
-  <div id="root">
+  <div id="root" class="main-app-container">
     {% include navbar.html %}
     <div class="movember-banner page-top">This year I'm doing Movember. Please donate <a href="https://mobro.co/ccrisp">here</a>.</div>
     <div class="introduction container">
@@ -29,8 +29,21 @@ permalink: /
         </div>
       </div>
     </div>
+    <div class="routeTileHolder">
+    {% for route in site.data.homepageRoutes.routes %}
+    <div id="{{ route.name | downcase }}" class="routeTile"
+      data-x={{ route.color.x }}
+      data-y={{ route.color.y }}
+      data-z={{ route.color.z }}
+      data-icon-url={{ route.icon_url}}
+      data-url="{{ route.url }}"
+      style="background: linear-gradient(-45deg, rgb({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}), rgba({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}, 0.55)) 0% 0% / contain, url(/assets/{{ route.icon_url }}) center center no-repeat;" >
+      <h1 style="font-size:50px;word-wrap:break-word;" data-reactid=".0.1.2.$1.0">{{ route.name }}</h1>
+    </div>
+    {% endfor %}
+    </div>
   </div>
-  {% include footer.html %}
   <script src="/js/intro_size_selector.js"></script>
+  <script src="/js/set_on_clicks.js"></script>
 </body>
 </html>
