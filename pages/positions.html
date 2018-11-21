@@ -7,7 +7,7 @@ permalink: /positions
   <div id="root" class="main-app-container">
     {% include navbar.html %}
     <div class="selected-positions">
-    <h1 class="page-top">Positions</h2>
+    <h1 class="page-top">Selected Positions</h2>
     {% for position in site.data.positions %}
     <div class="position-container">
         <div class="image-container" >
@@ -17,11 +17,11 @@ permalink: /positions
         </div>
         <div class="position-info-container">
             <div class="position-info-main">
-            <div>
+            <div class="positionTile" data-id="{{ position.id}}" style="cursor:pointer;display:flex;flex-direction:row;align-items:center;position:relative;">
                 <h2>
                 {{ position.title }}
                 </h2>
-                <h2 style="marginLeft:auto"><i class="fa fa-plus" aria-hidden="true"></i></h2>
+                <h2 style="margin-left:auto"><i class="fa fa-plus" aria-hidden="true"></i></h2>
             </div>
             {% if position.company %}
                 <div> 
@@ -34,17 +34,17 @@ permalink: /positions
             {% endif %}
             <div>{{ position.date }}</div>
             </div>
-            <div class='position-info-body' id="{{ positionId }}">
+            <div class='position-info-body' id="{{ position.id }}" style="display:none;">
             <h3>Background</h3>
             <div>{{ position.background }}</div>
             <h3>Role</h3>
             <div>{{ position.role }}</div>
-            {% if position.links.length != 0 %} 
+            {% if position.links %} 
                 <div>
                     <h3>Links</h3>
                     <ul>
                     {% for link in position.links %}
-                        <li><a href="{{ link }}">{{ link }}</a></li>
+                        <li><a href="{{ link.url }}">{{ link.name }}</a></li>
                     {% endfor %}
                     </ul>
                 </div>
@@ -57,5 +57,6 @@ permalink: /positions
   </div>
   <script src="/js/intro_size_selector.js"></script>
   <script src="/js/set_on_clicks.js"></script>
+  <script src="/js/set_expand_sections.js"></script>
 </body>
 </html>

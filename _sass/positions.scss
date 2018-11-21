@@ -4,10 +4,6 @@
   flex: 0 2 auto;
 }
 
-.position-info-body {
-  display: none;
-}
-
 .selected-positions {
   margin: 20px;
   @media screen and (min-width: 770px) {
@@ -31,3 +27,4 @@
      -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
           box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
+
