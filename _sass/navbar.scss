@@ -2,6 +2,10 @@ nav {
   font-family: Roboto Slab, sans-serif;
 }
 
+i.fa {
+  font-size: 32px;
+}
+
 ul {
   margin-left: auto;
   margin-right: 0;
@@ -15,6 +19,9 @@ ul {
   font-size: 1.4em;
 }
 
-i.fa {
-  font-size: 32px;
+.nav-item {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
