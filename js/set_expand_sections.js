@@ -3,7 +3,6 @@ for (var i = 0; i < positionTiles.length; i++) {
   const position = positionTiles[i];
   const id = position.dataset.id;
   const toggleDiv = document.getElementById(id);
-  console.log(id);
   var isOpen = false;
 
   const openPosition = function() {
@@ -17,8 +16,6 @@ for (var i = 0; i < positionTiles.length; i++) {
   }
 
   position.onclick=function() {
-    console.log("Hello");
-    console.log(isOpen);
     if (isOpen) {
       closePosition();
     } else {
