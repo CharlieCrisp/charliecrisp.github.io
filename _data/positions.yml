@@ -1,3 +1,18 @@
+- image: /assets/improbable.png
+  id: improbable
+  title: Software Engineer
+  date: 2018-Present
+  company: Improbable
+  company_url: https://improbable.io
+  background: Improbable is a company that is working to build large scale virtual worlds. 
+    Their Enterprise division is also building a platform - GraphOS - that enables the building of scientific models that can leverage the power of distributed cloud computing.
+  role: My role as a software engineer is to help design, implement and use GraphOS. This has allowed me to gain an understanding of scientific modelling, 
+    data science, and software engineering.
+  links: 
+    - name: Keanu (Part of GraphOS)
+      url: https://improbable-research.github.io/keanu
+    - name: Improbable
+      url: https://improbable.io
 - image: /assets/hcbanner.png
   id: hc
   mobile_image: /hclogo.png
