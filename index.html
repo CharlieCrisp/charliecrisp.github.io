@@ -1,51 +1,16 @@
----
-permalink: /
----
 <!doctype html>
-<html>
-{% include head.html %}
-<body>
-  <div id="root" class="main-app-container">
-    {% include navbar.html %}
-    <!-- <div class="movember-banner page-top">This year I'm doing Movember. Please donate <a href="https://mobro.co/ccrisp">here</a>.</div> -->
-    <div class="introduction container page-top">
-      <div id="intro--small" style="flex-direction:column; display: none"> 
-        <img src='/assets/me-normal.jpg' class='me-mobile' /> 
-        <div class='intro-box'>
-          <h1>I'm Charlie Crisp!</h1>
-          I am a software engineer working in the Enterprise division of <a href="https://improbable.io">Improbable</a>.
-          I graduated with a 1st class degree in Computer Science from the University of Cambridge in June 2018.
-          <br />
-          <br />
-          <b>Email: [firstname][lastname]249@gmail.com</b>
-        </div>
-      </div>
-      <div id="intro--large" class='large-introduction container'> 
-        <div class='intro-text'>
-          <h1>I'm Charlie Crisp!</h1>
-          I am a software engineer working in the Enterprise division of <a href="https://improbable.io">Improbable</a>.
-          I graduated with a 1st class degree in Computer Science from the University of Cambridge in June 2018.
-          <br />
-          <br />
-          <b>Email: [firstname][lastname]249@gmail.com</b>
-        </div>
-      </div>
-    </div>
-    <div class="routeTileHolder">
-    {% for route in site.data.homepageRoutes.routes %}
-    <div id="{{ route.name | downcase }}" class="routeTile"
-      data-x={{ route.color.x }}
-      data-y={{ route.color.y }}
-      data-z={{ route.color.z }}
-      data-icon-url={{ route.icon_url}}
-      data-url="{{ route.url }}"
-      style="background: linear-gradient(-45deg, rgb({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}), rgba({{ route.color.x }}, {{ route.color.y }}, {{ route.color.z }}, 0.55)) 0% 0%, url(/assets/{{ route.icon_url }}) center center no-repeat; background-size: contain;" >
-      <h1 style="font-size:50px;word-wrap:break-word;">{{ route.name }}</h1>
-    </div>
-    {% endfor %}
-    </div>
-  </div>
-  <script src="/js/intro_size_selector.js"></script>
-  <script src="/js/set_on_clicks.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Woodland Venture</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

@@ -1,0 +1,19 @@
+@layer reset, base, tokens, recipes, utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: #f9fafb;
+  }
+} 
