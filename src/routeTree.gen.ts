@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as WorkshopImport } from './routes/workshop'
 import { Route as SchoolsImport } from './routes/schools'
 import { Route as ProjectsImport } from './routes/projects'
 import { Route as ContactImport } from './routes/contact'
@@ -21,6 +22,12 @@ import { Route as ProjectsShelterImport } from './routes/projects.shelter'
 import { Route as ProjectsSanctuaryImport } from './routes/projects.sanctuary'
 
 // Create/Update Routes
+
+const WorkshopRoute = WorkshopImport.update({
+  id: '/workshop',
+  path: '/workshop',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SchoolsRoute = SchoolsImport.update({
   id: '/schools',
@@ -116,6 +123,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchoolsImport
       parentRoute: typeof rootRoute
     }
+    '/workshop': {
+      id: '/workshop'
+      path: '/workshop'
+      fullPath: '/workshop'
+      preLoaderRoute: typeof WorkshopImport
+      parentRoute: typeof rootRoute
+    }
     '/projects/sanctuary': {
       id: '/projects/sanctuary'
       path: '/sanctuary'
@@ -156,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/schools': typeof SchoolsRoute
+  '/workshop': typeof WorkshopRoute
   '/projects/sanctuary': typeof ProjectsSanctuaryRoute
   '/projects/shelter': typeof ProjectsShelterRoute
 }
@@ -167,6 +182,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/schools': typeof SchoolsRoute
+  '/workshop': typeof WorkshopRoute
   '/projects/sanctuary': typeof ProjectsSanctuaryRoute
   '/projects/shelter': typeof ProjectsShelterRoute
 }
@@ -179,6 +195,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/schools': typeof SchoolsRoute
+  '/workshop': typeof WorkshopRoute
   '/projects/sanctuary': typeof ProjectsSanctuaryRoute
   '/projects/shelter': typeof ProjectsShelterRoute
 }
@@ -192,6 +209,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects'
     | '/schools'
+    | '/workshop'
     | '/projects/sanctuary'
     | '/projects/shelter'
   fileRoutesByTo: FileRoutesByTo
@@ -202,6 +220,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects'
     | '/schools'
+    | '/workshop'
     | '/projects/sanctuary'
     | '/projects/shelter'
   id:
@@ -212,6 +231,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects'
     | '/schools'
+    | '/workshop'
     | '/projects/sanctuary'
     | '/projects/shelter'
   fileRoutesById: FileRoutesById
@@ -224,6 +244,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   SchoolsRoute: typeof SchoolsRoute
+  WorkshopRoute: typeof WorkshopRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -233,6 +254,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   SchoolsRoute: SchoolsRoute,
+  WorkshopRoute: WorkshopRoute,
 }
 
 export const routeTree = rootRoute
@@ -250,7 +272,8 @@ export const routeTree = rootRoute
         "/adventure",
         "/contact",
         "/projects",
-        "/schools"
+        "/schools",
+        "/workshop"
       ]
     },
     "/": {
@@ -274,6 +297,9 @@ export const routeTree = rootRoute
     },
     "/schools": {
       "filePath": "schools.tsx"
+    },
+    "/workshop": {
+      "filePath": "workshop.tsx"
     },
     "/projects/sanctuary": {
       "filePath": "projects.sanctuary.tsx",
