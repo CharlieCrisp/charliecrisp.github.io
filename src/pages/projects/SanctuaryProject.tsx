@@ -4,43 +4,28 @@ import { ProjectPage, ScrollSection } from './ProjectPage';
 
 const scrollSections: ScrollSection[] = [
   {
+    image: sanctuaryAfterJPG,
+    imageAspect: 0.776,
+  },
+  {
+    image: SanctuaryImages.IMG20210401173620,
+    imageAspect: 0.75,
+  },
+  {
     image: SanctuaryImages.IMG20210401103435,
-    xPosition: 0.1,
-    yPosition: 0.1,
-    rotation: 'LittleCounterClockwise',
-    direction: 'top',
     imageAspect: 0.75,
   },
   {
     image: SanctuaryImages.IMG20210401173611,
-    xPosition: 0.8,
-    yPosition: 0.6,
-    rotation: 'LittleClockwise',
-    direction: 'bottom',
-    imageAspect: 0.75,
+    imageAspect: 1.333,
   },
   {
     image: SanctuaryImages.IMG20210401173616,
-    xPosition: 0.8,
-    yPosition: 0.2,
-    rotation: 'LittleClockwise',
-    direction: 'left',
     imageAspect: 0.75,
   },
   {
     image: SanctuaryImages.IMG20210401173635,
-    xPosition: 0.2,
-    yPosition: 0.6,
-    rotation: 'LittleCounterClockwise',
-    direction: 'right',
-    imageAspect: 0.75,
-  },
-  {
-    image: sanctuaryAfterJPG,
-    xPosition: 0.5,
-    yPosition: 0.5,
-    direction: 'bottom',
-    imageAspect: 0.75,
+    imageAspect: 1.333,
   },
 ];
 
@@ -64,7 +49,6 @@ const FinalDescriptionPage = () => {
 export const SanctuaryProject = () => (
   <ProjectPage
     name="The Sanctuary"
-    baseImage={SanctuaryImages.IMG20210401173620}
     scrollSections={scrollSections}
     finalDescription={<FinalDescriptionPage />}
   />

@@ -1,7 +1,6 @@
 import { useNavigate } from '@tanstack/react-router';
 import { css } from '../../styled-system/css';
 import { motion } from 'framer-motion';
-import { thinBrownBorder } from './border';
 
 export interface PostCardProps {
   position: Position;
@@ -58,7 +57,9 @@ export const PostCard = ({ image }: { image: PostCardImage }) => {
     return (
       <div
         className={css({
-          ...thinBrownBorder,
+          borderColor: 'brand.darkBrown',
+          borderWidth: '1px',
+          borderStyle: 'solid',
         })}
       >
         <img
