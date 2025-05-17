@@ -8,9 +8,20 @@ interface ServiceCardProps {
   title: string;
   description: string;
   image: 'childRope' | 'parachute' | 'itServices' | 'sanctuary';
-  linkTo: string;
+  linkTo?: string;
   imagePosition?: string;
 }
+
+const OptionalLink = ({ children, to }: { children: React.ReactNode; to?: string }) => {
+  if (to) {
+    return (
+      <Link hash="root" to={to}>
+        {children}
+      </Link>
+    );
+  }
+  return <>{children}</>;
+};
 
 export function ServiceCard({
   title,
@@ -20,7 +31,7 @@ export function ServiceCard({
   imagePosition = 'center',
 }: ServiceCardProps) {
   return (
-    <Link to={linkTo}>
+    <OptionalLink to={linkTo}>
       <div
         className={css({
           mb: 10,
@@ -28,7 +39,7 @@ export function ServiceCard({
           transition: 'transform 0.2s',
         })}
       >
-        <WithShadow borderWidth="thick">
+        <WithShadow borderWidth="thick" hoverAnimation>
           <div
             className={css({
               position: 'relative',
@@ -108,23 +119,12 @@ export function ServiceCard({
                   display: { base: 'none', md: 'flex' },
                 })}
               >
-                <FontAwesomeIcon icon={faArrowRight} />
+                {linkTo && <FontAwesomeIcon icon={faArrowRight} />}
               </div>
             </div>
-            <div
-              className={css({
-                backgroundColor: 'brand.darkBrown',
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                top: '4px',
-                left: '4px',
-                zIndex: 0,
-              })}
-            />
           </div>
         </WithShadow>
       </div>
-    </Link>
+    </OptionalLink>
   );
 }

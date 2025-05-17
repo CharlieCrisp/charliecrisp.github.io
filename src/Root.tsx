@@ -8,6 +8,7 @@ import facebook from './assets/img/facebook.png';
 import instagram from './assets/img/Instagram_Logo.png';
 import fsa from './assets/img/fsa.jpg';
 import { navBarHeight } from './components/navBarHeight';
+import navBarRef from './components/navBarRef';
 
 const navItems = [
   {
@@ -22,21 +23,37 @@ const navItems = [
     label: 'Projects',
     dropdownItems: [
       { label: 'All projects', href: '/projects' },
-      { label: 'Shelter project', href: '/projects/shelter' },
-      { label: 'The Sanctuary', href: '/projects/sanctuary' },
+      { label: 'The Sanctuary', href: '/sanctuary' },
+      { label: 'Garden Ideas', href: '/garden-ideas' },
+      { label: 'Garden Sofas', href: '/garden-sofas' },
+      { label: 'Outdoor Shelters', href: '/shelters' },
     ],
   },
   { label: 'Contact', href: '/contact' },
   { label: 'About', href: '/about' },
 ];
 
+const pagesWithNoFooter = [
+  '/workshop' as const,
+  '/sanctuary' as const,
+  '/shelter' as const,
+  '/composting-toilet' as const,
+  '/cosy-bench' as const,
+  '/decking' as const,
+  '/garden-ideas' as const,
+  '/garden-sofas' as const,
+  '/shelters' as const,
+];
+
 export function Root() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const matchRoute = useMatchRoute();
-  const isWorkshop = matchRoute({
-    to: '/workshop',
-  });
+  const shouldHideFooter = pagesWithNoFooter.some((page) =>
+    matchRoute({
+      to: page,
+    }),
+  );
 
   return (
     <div
@@ -49,6 +66,7 @@ export function Root() {
       })}
     >
       <nav
+        ref={navBarRef}
         className={css({
           bg: 'brand.darkGreen',
           py: '2',
@@ -164,7 +182,7 @@ export function Root() {
                 _hover: {
                   borderBottom: '2px solid',
                 },
-                display: { base: 'block', lg: 'block' },
+                display: 'block',
               })}
             >
               Email: info@woodlandventure.co.uk
@@ -177,7 +195,7 @@ export function Root() {
         <Outlet />
       </main>
 
-      {!isWorkshop && (
+      {!shouldHideFooter && (
         <footer
           className={css({
             bg: 'white',

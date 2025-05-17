@@ -10,16 +10,22 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root';
-import { Route as WorkshopImport } from './routes/workshop';
-import { Route as SchoolsImport } from './routes/schools';
-import { Route as ProjectsImport } from './routes/projects';
-import { Route as ContactImport } from './routes/contact';
-import { Route as AdventureImport } from './routes/adventure';
-import { Route as AboutImport } from './routes/about';
-import { Route as IndexImport } from './routes/index';
-import { Route as ProjectsShelterImport } from './routes/projects.shelter';
-import { Route as ProjectsSanctuaryImport } from './routes/projects.sanctuary';
+import { Route as rootRoute } from './routes/__root'
+import { Route as WorkshopImport } from './routes/workshop'
+import { Route as SheltersImport } from './routes/shelters'
+import { Route as ShelterImport } from './routes/shelter'
+import { Route as SchoolsImport } from './routes/schools'
+import { Route as SanctuaryImport } from './routes/sanctuary'
+import { Route as ProjectsImport } from './routes/projects'
+import { Route as GardenSofasImport } from './routes/garden-sofas'
+import { Route as GardenIdeasImport } from './routes/garden-ideas'
+import { Route as DeckingImport } from './routes/decking'
+import { Route as CosyBenchImport } from './routes/cosy-bench'
+import { Route as ContactImport } from './routes/contact'
+import { Route as CompostingToiletImport } from './routes/composting-toilet'
+import { Route as AdventureImport } from './routes/adventure'
+import { Route as AboutImport } from './routes/about'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
@@ -27,237 +33,355 @@ const WorkshopRoute = WorkshopImport.update({
   id: '/workshop',
   path: '/workshop',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const SheltersRoute = SheltersImport.update({
+  id: '/shelters',
+  path: '/shelters',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShelterRoute = ShelterImport.update({
+  id: '/shelter',
+  path: '/shelter',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SchoolsRoute = SchoolsImport.update({
   id: '/schools',
   path: '/schools',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const SanctuaryRoute = SanctuaryImport.update({
+  id: '/sanctuary',
+  path: '/sanctuary',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ProjectsRoute = ProjectsImport.update({
   id: '/projects',
   path: '/projects',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const GardenSofasRoute = GardenSofasImport.update({
+  id: '/garden-sofas',
+  path: '/garden-sofas',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GardenIdeasRoute = GardenIdeasImport.update({
+  id: '/garden-ideas',
+  path: '/garden-ideas',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DeckingRoute = DeckingImport.update({
+  id: '/decking',
+  path: '/decking',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CosyBenchRoute = CosyBenchImport.update({
+  id: '/cosy-bench',
+  path: '/cosy-bench',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ContactRoute = ContactImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const CompostingToiletRoute = CompostingToiletImport.update({
+  id: '/composting-toilet',
+  path: '/composting-toilet',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const AdventureRoute = AdventureImport.update({
   id: '/adventure',
   path: '/adventure',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const AboutRoute = AboutImport.update({
   id: '/about',
   path: '/about',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any);
-
-const ProjectsShelterRoute = ProjectsShelterImport.update({
-  id: '/shelter',
-  path: '/shelter',
-  getParentRoute: () => ProjectsRoute,
-} as any);
-
-const ProjectsSanctuaryRoute = ProjectsSanctuaryImport.update({
-  id: '/sanctuary',
-  path: '/sanctuary',
-  getParentRoute: () => ProjectsRoute,
-} as any);
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      id: '/';
-      path: '/';
-      fullPath: '/';
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
     '/about': {
-      id: '/about';
-      path: '/about';
-      fullPath: '/about';
-      preLoaderRoute: typeof AboutImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
     '/adventure': {
-      id: '/adventure';
-      path: '/adventure';
-      fullPath: '/adventure';
-      preLoaderRoute: typeof AdventureImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/adventure'
+      path: '/adventure'
+      fullPath: '/adventure'
+      preLoaderRoute: typeof AdventureImport
+      parentRoute: typeof rootRoute
+    }
+    '/composting-toilet': {
+      id: '/composting-toilet'
+      path: '/composting-toilet'
+      fullPath: '/composting-toilet'
+      preLoaderRoute: typeof CompostingToiletImport
+      parentRoute: typeof rootRoute
+    }
     '/contact': {
-      id: '/contact';
-      path: '/contact';
-      fullPath: '/contact';
-      preLoaderRoute: typeof ContactImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactImport
+      parentRoute: typeof rootRoute
+    }
+    '/cosy-bench': {
+      id: '/cosy-bench'
+      path: '/cosy-bench'
+      fullPath: '/cosy-bench'
+      preLoaderRoute: typeof CosyBenchImport
+      parentRoute: typeof rootRoute
+    }
+    '/decking': {
+      id: '/decking'
+      path: '/decking'
+      fullPath: '/decking'
+      preLoaderRoute: typeof DeckingImport
+      parentRoute: typeof rootRoute
+    }
+    '/garden-ideas': {
+      id: '/garden-ideas'
+      path: '/garden-ideas'
+      fullPath: '/garden-ideas'
+      preLoaderRoute: typeof GardenIdeasImport
+      parentRoute: typeof rootRoute
+    }
+    '/garden-sofas': {
+      id: '/garden-sofas'
+      path: '/garden-sofas'
+      fullPath: '/garden-sofas'
+      preLoaderRoute: typeof GardenSofasImport
+      parentRoute: typeof rootRoute
+    }
     '/projects': {
-      id: '/projects';
-      path: '/projects';
-      fullPath: '/projects';
-      preLoaderRoute: typeof ProjectsImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsImport
+      parentRoute: typeof rootRoute
+    }
+    '/sanctuary': {
+      id: '/sanctuary'
+      path: '/sanctuary'
+      fullPath: '/sanctuary'
+      preLoaderRoute: typeof SanctuaryImport
+      parentRoute: typeof rootRoute
+    }
     '/schools': {
-      id: '/schools';
-      path: '/schools';
-      fullPath: '/schools';
-      preLoaderRoute: typeof SchoolsImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/schools'
+      path: '/schools'
+      fullPath: '/schools'
+      preLoaderRoute: typeof SchoolsImport
+      parentRoute: typeof rootRoute
+    }
+    '/shelter': {
+      id: '/shelter'
+      path: '/shelter'
+      fullPath: '/shelter'
+      preLoaderRoute: typeof ShelterImport
+      parentRoute: typeof rootRoute
+    }
+    '/shelters': {
+      id: '/shelters'
+      path: '/shelters'
+      fullPath: '/shelters'
+      preLoaderRoute: typeof SheltersImport
+      parentRoute: typeof rootRoute
+    }
     '/workshop': {
-      id: '/workshop';
-      path: '/workshop';
-      fullPath: '/workshop';
-      preLoaderRoute: typeof WorkshopImport;
-      parentRoute: typeof rootRoute;
-    };
-    '/projects/sanctuary': {
-      id: '/projects/sanctuary';
-      path: '/sanctuary';
-      fullPath: '/projects/sanctuary';
-      preLoaderRoute: typeof ProjectsSanctuaryImport;
-      parentRoute: typeof ProjectsImport;
-    };
-    '/projects/shelter': {
-      id: '/projects/shelter';
-      path: '/shelter';
-      fullPath: '/projects/shelter';
-      preLoaderRoute: typeof ProjectsShelterImport;
-      parentRoute: typeof ProjectsImport;
-    };
+      id: '/workshop'
+      path: '/workshop'
+      fullPath: '/workshop'
+      preLoaderRoute: typeof WorkshopImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-interface ProjectsRouteChildren {
-  ProjectsSanctuaryRoute: typeof ProjectsSanctuaryRoute;
-  ProjectsShelterRoute: typeof ProjectsShelterRoute;
-}
-
-const ProjectsRouteChildren: ProjectsRouteChildren = {
-  ProjectsSanctuaryRoute: ProjectsSanctuaryRoute,
-  ProjectsShelterRoute: ProjectsShelterRoute,
-};
-
-const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(ProjectsRouteChildren);
-
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute;
-  '/about': typeof AboutRoute;
-  '/adventure': typeof AdventureRoute;
-  '/contact': typeof ContactRoute;
-  '/projects': typeof ProjectsRouteWithChildren;
-  '/schools': typeof SchoolsRoute;
-  '/workshop': typeof WorkshopRoute;
-  '/projects/sanctuary': typeof ProjectsSanctuaryRoute;
-  '/projects/shelter': typeof ProjectsShelterRoute;
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/adventure': typeof AdventureRoute
+  '/composting-toilet': typeof CompostingToiletRoute
+  '/contact': typeof ContactRoute
+  '/cosy-bench': typeof CosyBenchRoute
+  '/decking': typeof DeckingRoute
+  '/garden-ideas': typeof GardenIdeasRoute
+  '/garden-sofas': typeof GardenSofasRoute
+  '/projects': typeof ProjectsRoute
+  '/sanctuary': typeof SanctuaryRoute
+  '/schools': typeof SchoolsRoute
+  '/shelter': typeof ShelterRoute
+  '/shelters': typeof SheltersRoute
+  '/workshop': typeof WorkshopRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute;
-  '/about': typeof AboutRoute;
-  '/adventure': typeof AdventureRoute;
-  '/contact': typeof ContactRoute;
-  '/projects': typeof ProjectsRouteWithChildren;
-  '/schools': typeof SchoolsRoute;
-  '/workshop': typeof WorkshopRoute;
-  '/projects/sanctuary': typeof ProjectsSanctuaryRoute;
-  '/projects/shelter': typeof ProjectsShelterRoute;
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/adventure': typeof AdventureRoute
+  '/composting-toilet': typeof CompostingToiletRoute
+  '/contact': typeof ContactRoute
+  '/cosy-bench': typeof CosyBenchRoute
+  '/decking': typeof DeckingRoute
+  '/garden-ideas': typeof GardenIdeasRoute
+  '/garden-sofas': typeof GardenSofasRoute
+  '/projects': typeof ProjectsRoute
+  '/sanctuary': typeof SanctuaryRoute
+  '/schools': typeof SchoolsRoute
+  '/shelter': typeof ShelterRoute
+  '/shelters': typeof SheltersRoute
+  '/workshop': typeof WorkshopRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  '/': typeof IndexRoute;
-  '/about': typeof AboutRoute;
-  '/adventure': typeof AdventureRoute;
-  '/contact': typeof ContactRoute;
-  '/projects': typeof ProjectsRouteWithChildren;
-  '/schools': typeof SchoolsRoute;
-  '/workshop': typeof WorkshopRoute;
-  '/projects/sanctuary': typeof ProjectsSanctuaryRoute;
-  '/projects/shelter': typeof ProjectsShelterRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/adventure': typeof AdventureRoute
+  '/composting-toilet': typeof CompostingToiletRoute
+  '/contact': typeof ContactRoute
+  '/cosy-bench': typeof CosyBenchRoute
+  '/decking': typeof DeckingRoute
+  '/garden-ideas': typeof GardenIdeasRoute
+  '/garden-sofas': typeof GardenSofasRoute
+  '/projects': typeof ProjectsRoute
+  '/sanctuary': typeof SanctuaryRoute
+  '/schools': typeof SchoolsRoute
+  '/shelter': typeof ShelterRoute
+  '/shelters': typeof SheltersRoute
+  '/workshop': typeof WorkshopRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
+  fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
     | '/adventure'
+    | '/composting-toilet'
     | '/contact'
+    | '/cosy-bench'
+    | '/decking'
+    | '/garden-ideas'
+    | '/garden-sofas'
     | '/projects'
+    | '/sanctuary'
     | '/schools'
+    | '/shelter'
+    | '/shelters'
     | '/workshop'
-    | '/projects/sanctuary'
-    | '/projects/shelter';
-  fileRoutesByTo: FileRoutesByTo;
+  fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/adventure'
+    | '/composting-toilet'
     | '/contact'
+    | '/cosy-bench'
+    | '/decking'
+    | '/garden-ideas'
+    | '/garden-sofas'
     | '/projects'
+    | '/sanctuary'
     | '/schools'
+    | '/shelter'
+    | '/shelters'
     | '/workshop'
-    | '/projects/sanctuary'
-    | '/projects/shelter';
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/adventure'
+    | '/composting-toilet'
     | '/contact'
+    | '/cosy-bench'
+    | '/decking'
+    | '/garden-ideas'
+    | '/garden-sofas'
     | '/projects'
+    | '/sanctuary'
     | '/schools'
+    | '/shelter'
+    | '/shelters'
     | '/workshop'
-    | '/projects/sanctuary'
-    | '/projects/shelter';
-  fileRoutesById: FileRoutesById;
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  AboutRoute: typeof AboutRoute;
-  AdventureRoute: typeof AdventureRoute;
-  ContactRoute: typeof ContactRoute;
-  ProjectsRoute: typeof ProjectsRouteWithChildren;
-  SchoolsRoute: typeof SchoolsRoute;
-  WorkshopRoute: typeof WorkshopRoute;
+  IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdventureRoute: typeof AdventureRoute
+  CompostingToiletRoute: typeof CompostingToiletRoute
+  ContactRoute: typeof ContactRoute
+  CosyBenchRoute: typeof CosyBenchRoute
+  DeckingRoute: typeof DeckingRoute
+  GardenIdeasRoute: typeof GardenIdeasRoute
+  GardenSofasRoute: typeof GardenSofasRoute
+  ProjectsRoute: typeof ProjectsRoute
+  SanctuaryRoute: typeof SanctuaryRoute
+  SchoolsRoute: typeof SchoolsRoute
+  ShelterRoute: typeof ShelterRoute
+  SheltersRoute: typeof SheltersRoute
+  WorkshopRoute: typeof WorkshopRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdventureRoute: AdventureRoute,
+  CompostingToiletRoute: CompostingToiletRoute,
   ContactRoute: ContactRoute,
-  ProjectsRoute: ProjectsRouteWithChildren,
+  CosyBenchRoute: CosyBenchRoute,
+  DeckingRoute: DeckingRoute,
+  GardenIdeasRoute: GardenIdeasRoute,
+  GardenSofasRoute: GardenSofasRoute,
+  ProjectsRoute: ProjectsRoute,
+  SanctuaryRoute: SanctuaryRoute,
   SchoolsRoute: SchoolsRoute,
+  ShelterRoute: ShelterRoute,
+  SheltersRoute: SheltersRoute,
   WorkshopRoute: WorkshopRoute,
-};
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -268,9 +392,17 @@ export const routeTree = rootRoute
         "/",
         "/about",
         "/adventure",
+        "/composting-toilet",
         "/contact",
+        "/cosy-bench",
+        "/decking",
+        "/garden-ideas",
+        "/garden-sofas",
         "/projects",
+        "/sanctuary",
         "/schools",
+        "/shelter",
+        "/shelters",
         "/workshop"
       ]
     },
@@ -283,29 +415,41 @@ export const routeTree = rootRoute
     "/adventure": {
       "filePath": "adventure.tsx"
     },
+    "/composting-toilet": {
+      "filePath": "composting-toilet.tsx"
+    },
     "/contact": {
       "filePath": "contact.tsx"
     },
+    "/cosy-bench": {
+      "filePath": "cosy-bench.tsx"
+    },
+    "/decking": {
+      "filePath": "decking.tsx"
+    },
+    "/garden-ideas": {
+      "filePath": "garden-ideas.tsx"
+    },
+    "/garden-sofas": {
+      "filePath": "garden-sofas.tsx"
+    },
     "/projects": {
-      "filePath": "projects.tsx",
-      "children": [
-        "/projects/sanctuary",
-        "/projects/shelter"
-      ]
+      "filePath": "projects.tsx"
+    },
+    "/sanctuary": {
+      "filePath": "sanctuary.tsx"
     },
     "/schools": {
       "filePath": "schools.tsx"
     },
+    "/shelter": {
+      "filePath": "shelter.tsx"
+    },
+    "/shelters": {
+      "filePath": "shelters.tsx"
+    },
     "/workshop": {
       "filePath": "workshop.tsx"
-    },
-    "/projects/sanctuary": {
-      "filePath": "projects.sanctuary.tsx",
-      "parent": "/projects"
-    },
-    "/projects/shelter": {
-      "filePath": "projects.shelter.tsx",
-      "parent": "/projects"
     }
   }
 }
